@@ -1,39 +1,39 @@
 <template>
-  <div>
-    <nav-bar></nav-bar>
-    <div style="text-align: center;height: 40vh; align:center">
-      <van-image
-        round
-        width="10rem"
-        height="10rem"
-        :src= "hospitalImg"
-        style="display: inline-block; "
-      />
-      <p id="toReg" @click="toLogin">已有账号？去登录！</p>
+  <div id="body">
+    <div id="form">
+      <div style="text-align: center;height: 40vh; align:center">
+        <van-image
+          round
+          width="10rem"
+          height="10rem"
+          :src= "hospitalImg"
+          style="display: inline-block; "
+        />
+        <p id="toReg" @click="toLogin">已有账号？去登录！</p>
+      </div>
+
+      <van-cell-group>
+        <van-field v-model="phoneMessage" readonly />
+        <van-field v-model="patient.phone" placeholder="请输入手机号" />
+        <van-field v-model="nameMessage" readonly />
+        <van-field v-model="patient.name" placeholder="请输入您的真实姓名" />
+        <van-field v-model="emailMessage" readonly />
+        <van-field v-model="patient.email" placeholder="请输入您的邮箱" />
+      </van-cell-group>
+      <van-cell-group>
+        <van-field v-model="birthdayMessage" readonly />
+        <input type="date" :value="patient.birthday" style="margin-left: 16px"/>
+        <!--<van-field v-model="patient.birthday" placeholder="请输入您的出生日期" />-->
+        <van-field v-model="passwordMessage" readonly />
+        <van-field v-model="patient.password" type = "password" placeholder="请输入密码" />
+        <van-field v-model="passwordAgainMessage" readonly />
+        <van-field v-model="againPassword" type = "password" placeholder="请再次输入密码" />
+      </van-cell-group>
+
+      <div id = "buttonId">
+        <van-button color="linear-gradient(to right, #4bb0ff, #6149f6)" @click="register">确定</van-button>
+      </div>
     </div>
-
-    <van-cell-group>
-      <van-field v-model="phoneMessage" readonly />
-      <van-field v-model="patient.phone" placeholder="请输入手机号" />
-      <van-field v-model="nameMessage" readonly />
-      <van-field v-model="patient.name" placeholder="请输入您的真实姓名" />
-      <van-field v-model="emailMessage" readonly />
-      <van-field v-model="patient.email" placeholder="请输入您的邮箱" />
-    </van-cell-group>
-    <van-cell-group>
-      <van-field v-model="birthdayMessage" readonly />
-      <input type="date" :value="patient.birthday" style="margin-left: 16px"/>
-      <!--<van-field v-model="patient.birthday" placeholder="请输入您的出生日期" />-->
-      <van-field v-model="passwordMessage" readonly />
-      <van-field v-model="patient.password" type = "password" placeholder="请输入密码" />
-      <van-field v-model="passwordAgainMessage" readonly />
-      <van-field v-model="againPassword" type = "password" placeholder="请再次输入密码" />
-    </van-cell-group>
-
-    <div id = "buttonId">
-      <van-button color="linear-gradient(to right, #4bb0ff, #6149f6)" @click="register">确定</van-button>
-    </div>
-
   </div>
 </template>
 
@@ -144,5 +144,22 @@
   }
   .radioItem{
     margin-left: 3vw;
+  }
+  #body{
+    text-align: center;
+    background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590110913444&di=69efcf5d77fea9c247ab248fda4ce994&imgtype=0&src=http%3A%2F%2Fwww.manpingou.com%2Fuploads%2Fallimg%2F181029%2F25-1Q029112P9259.jpg");
+    background-size: 100%;
+  }
+  #form{
+    border:2px solid #ccc;
+    border-radius: 10px;
+    width:30vw;
+    height:120vh;
+    display: inline-block;
+    background-color: #f0f0f0;
+    transform: translateY(10%);
+  }
+  #form:hover{
+    border:2px solid orangered;
   }
 </style>
